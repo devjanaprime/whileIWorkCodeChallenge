@@ -7,7 +7,24 @@ const data = require( './data/datasmall.json' );
 const verbose = false;
 const testing = false;
 
-let sortEmployees = ( data ) =>{
+let calculateEmployeeShifts = ( data ) =>{
+   let employees = filterByEmployeeId();
+    // flag invalid shifts
+    for( employee of employees ){
+        employee = flagInvalidShifts( employee );
+        employee = employeeShiftHours( employee );
+    }
+    // testing
+    if( testing ) {
+        console.log( '------------- test output ----------')
+        for( shift of employees[ 25 ].shifts ){
+            console.log( shift );
+        }
+    }
+    return employees;
+}
+
+let filterByEmployeeId = () =>{
     let employees = [];
     let employeeIDs = [];
     // sort by employee
@@ -25,21 +42,8 @@ let sortEmployees = ( data ) =>{
             });
         } // end new employee
     }
-    // flag invalid shifts
-    for( employee of employees ){
-        employee = flagInvalidShifts( employee );
-        employee = employeeShiftHours( employee );
-    }
-    // testing
-    if( testing ) {
-        console.log( '------------- test ourput ----------')
-        for( shift of employees[ 25 ].shifts ){
-            console.log( shift );
-        }
-    }
+    return employees;
 }
-
-
 
 let flagInvalidShifts = ( employee ) => {
     if( verbose ) console.log( 'in filterInvalidShifts:', employee );
@@ -108,9 +112,9 @@ let dateFormat = ( date ) => {
         if( verbose ) console.log( '---------------------------- invalid date:', date );
         return false;
     }
-    console.log( 'valid date' );
+    if( verbose ) console.log( 'valid date' );
     return true;
 }
 
 // init
-sortEmployees( data );
+console.log( calculateEmployeeShifts( data ) );
