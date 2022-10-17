@@ -20,6 +20,24 @@ let sortEmployees = ( data ) =>{
     }
     console.log( 'employeeIDs:', employeeIDs );
     console.log( 'employees:', employees );
+    console.log( employees[0].shifts[0].EndTime, employees[0].shifts[0].StartTime );
+    /// - tests - ///
+    console.log( convertDate( employees[0].shifts[0].StartTime ) );
+    console.log( convertDate( employees[0].shifts[0].EndTime ) );
+    console.log( convertDate( employees[0].shifts[1].StartTime ) );
+    console.log( convertDate( employees[0].shifts[1].EndTime ) );
 }
+
+let convertDate = ( date ) => {
+    if( verbose ) console.log( 'in convertDate:', date );
+    let calendarDate = date.split( 'T' )[0];
+    let time = date.split( 'T' )[1].split( 'Z' )[0];
+    return {
+        calendarDate: calendarDate,
+        day: new Date( date ).getDay(),
+        time: time
+    }
+}
+
 
 sortEmployees( data );
