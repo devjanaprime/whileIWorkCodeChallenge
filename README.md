@@ -28,6 +28,8 @@ You'll see som idosyncracies of working at pace like this in the project:
 
 - "verbose" and "testing" are used to filter what shows up in the console
 - "datasmall.json" is a truncated JSON file that was modified for testing
+- lots of "// end " comments. I like to fold up my code in the IDE and this help me keep thigns in order
+- minimal whitespace and comments. I prefer to keep whiespace at a minimum & comments I use pretty much only if the code isn't self-explanatory. Always open to changing this depending on code standards
 
 I'm out of my element with date logic at the moment so that was more of a sticking point than I'd like to admit. The built in functionalities are more foreign to me right now than others. I'm just more used to problem solving with real time game data so this was a fun stretch and helped a lot to see what a refocus of my abilities would entail. I am more able to get the distance between two objects in 3D space or get the screen space location of a point in game space than I am to figure out how to divine in what week a date is :)
 Planning is very important to me and a time boxed Code Challenge is not really the best way to make sure I'm prepped before coding. I believe we talked in our call about hos I believe that coding is the last thing I prefer to do. About 30 min were put in early on to make sure I knew the general direction, but once I got into the weeds, I didn't have my usual amount of foundational work ready.

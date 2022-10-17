@@ -114,7 +114,34 @@ let dateFormat = ( date ) => {
     }
     if( verbose ) console.log( 'valid date' );
     return true;
-}
+} //end dateFormat
+
+let displayHelper = ( employees ) =>{
+    /// - TODO, replace with JSON output when business logic is done - ///
+    for( employee of employees ){
+        /// - TODO: weekify - ///
+        let regularHours = 0;
+        let otHours = 0;
+        let invalidShifts = [];
+        console.log(  );
+        for( shift of employee.shifts ){
+            if( shift.invalid ){
+                invalidShifts.push( shift.ShiftID ); 
+            } // end invalid
+            /// - TODO calc OT once weekified - ///
+            regularHours += shift.hours;
+        } // end for
+    const tempObject = {
+        EmployeeID: employee.EmployeeID,
+        regularHours: regularHours,
+        otHours: otHours,
+        InvalidShifts: invalidShifts
+    }
+    console.log( tempObject );
+    } // end for
+    console.log( '-= END =-' );
+} // end displayhelper
 
 // init
-console.log( calculateEmployeeShifts( data ) );
+
+displayHelper( calculateEmployeeShifts( data ) );
