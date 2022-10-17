@@ -1,4 +1,4 @@
-const data = require( './data/datasmall.json' );
+const data = require( './data/dataset.json' );
 const verbose = true;
 
 let sortEmployees = ( data ) =>{
@@ -22,10 +22,9 @@ let sortEmployees = ( data ) =>{
     console.log( 'employees:', employees );
     console.log( employees[0].shifts[0].EndTime, employees[0].shifts[0].StartTime );
     /// - tests - ///
-    console.log( convertDate( employees[0].shifts[0].StartTime ) );
-    console.log( convertDate( employees[0].shifts[0].EndTime ) );
-    console.log( convertDate( employees[0].shifts[1].StartTime ) );
-    console.log( convertDate( employees[0].shifts[1].EndTime ) );
+    for( employee of employees ){
+        filterInvalidShifts( employee );
+    }
 }
 
 let convertDate = ( date ) => {
@@ -39,5 +38,36 @@ let convertDate = ( date ) => {
     }
 }
 
+let filterInvalidShifts = ( employee ) => {
+    // if( verbose ) console.log( 'in filterInvalidShifts:', employee );
+    remove = [];
+    for( let i=0; i< employee.shifts.length; i++  ){
+        let shiftAStart = Date.parse( employee.shifts[ i ].StartTime );
+        let shiftAEnd = Date.parse( employee.shifts[ i ].EndTime );
 
+        for( let j=i+1; j< employee.shifts.length-1; j++ ){
+            let dupeCheckStart = Date.parse( employee.shifts[ j ].StartTime );
+            let dupeCheckEnd = Date.parse( employee.shifts[ j ].EndTime );
+            if( max(shiftAEnd, dupeCheckEnd) - min(shiftAStart, dupeCheckStart) < (shiftAEnd - shiftAStart) + (dupeCheckEnd - dupeCheckStart) ){
+                console.log( 'dupe!', employee.shifts[ i ], employee.shifts [ j ] );
+                remove.push( employee.shifts[ i ] );
+                remove.push( employee.shifts[ j ] );
+            }
+        }
+    }
+    if( verbose && remove.length > 0 ) console.log( 'removing invalid shifts:', remove, 'from employee:', employee );
+}
+
+let max = ( a, b )=>{
+    if( a > b ){
+        return a;
+    } 
+    return b;
+}
+let min = ( a, b )=>{
+    if( a < b ){
+        return a;
+    } 
+    return b;
+}
 sortEmployees( data );
