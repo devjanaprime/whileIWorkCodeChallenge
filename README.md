@@ -7,7 +7,7 @@ What is working:
 ---
 
 - data is sorted by EmployeeID & ordered by shift date
-- shift horus are calculated
+- shift hours are calculated
 - overlapping shifts are flagged as "invalid"
 - rudimantary date validation (also flags a shift as "invalid")
 - very basic JSON output for what is working 
@@ -32,5 +32,7 @@ You'll see som idosyncracies of working at pace like this in the project:
 - minimal whitespace and comments. I prefer to keep whiespace at a minimum & comments I use pretty much only if the code isn't self-explanatory. Always open to changing this depending on code standards
 
 I'm out of my element with date logic at the moment so that was more of a sticking point than I'd like to admit. The built in functionalities are more foreign to me right now than others. I'm just more used to problem solving with real time game data so this was a fun stretch and helped a lot to see what a refocus of my abilities would entail. I am more able to get the distance between two objects in 3D space or get the screen space location of a point in game space than I am to figure out how to divine in what week a date is :)
+
 Planning is very important to me and a time boxed Code Challenge is not really the best way to make sure I'm prepped before coding. I believe we talked in our call about hos I believe that coding is the last thing I prefer to do. About 30 min were put in early on to make sure I knew the general direction, but once I got into the weeds, I didn't have my usual amount of foundational work ready.
+
 Fun fact, when I broke for lunch I went for a bike ride as it is getting cold fast here and I'm trying to get out while it is still kidna sunny. My partner didn't know I left and ran to Costco - locking me out in the process. I called when I got home and by the time she got back I was so cold I was having trouble typing when i got back to the keyboard. It made for a fun break and a reason to brew a super hot pot of coffee before returning.
