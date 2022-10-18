@@ -10,7 +10,7 @@ What is working:
 - shift hours are calculated
 - overlapping shifts are flagged as "invalid"
 - rudimantary date validation (also flags a shift as "invalid")
-- very basic JSON output for what is working 
+- very basic JSON(ish) output for what is working 
 
 Next steps:
 ---
